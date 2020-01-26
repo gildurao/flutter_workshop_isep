@@ -1,2 +1,3 @@
-# flutter_todo
-To Do App made in Flutter 
+# flutter_workshop_isep
+
+This is the repo for the workshop happening on the Xth of March.
