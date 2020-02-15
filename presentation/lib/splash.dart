@@ -121,33 +121,7 @@ class _Flutter101 extends StatefulWidget {
   __Flutter101State createState() => __Flutter101State();
 }
 
-class __Flutter101State extends State<_Flutter101>
-    with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 1500),
-      vsync: this,
-    );
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _controller.reverse();
-      } else if (status == AnimationStatus.dismissed) {
-        _controller.forward();
-      }
-    });
-    _controller.forward();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class __Flutter101State extends State<_Flutter101> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -165,8 +139,11 @@ class __Flutter101State extends State<_Flutter101>
                 ]),
             child: CircleAvatar(
               radius: 200,
-              child: FlutterLogo(
-                size: 350,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 64.0),
+                child: FlutterLogo(
+                  size: 350,
+                ),
               ),
             ),
           ),
