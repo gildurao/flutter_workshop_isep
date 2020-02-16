@@ -9,7 +9,8 @@ class WhatIsFlutter extends StatefulWidget {
   _WhatIsFlutterState createState() => _WhatIsFlutterState();
 }
 
-class _WhatIsFlutterState extends State<WhatIsFlutter> {
+class _WhatIsFlutterState extends State<WhatIsFlutter>
+    with SingleTickerProviderStateMixin {
   PageController _pageController;
 
   @override
@@ -19,12 +20,21 @@ class _WhatIsFlutterState extends State<WhatIsFlutter> {
   }
 
   @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    precacheAssets(context);
+    _precacheAssets(context);
     return GestureDetector(
       onTap: () {
-        _pageController.nextPage(
-            duration: Duration(milliseconds: 300), curve: Curves.easeInOutSine);
+        if (_pageController.page < 3) {
+          _pageController.nextPage(
+              duration: Duration(milliseconds: 300),
+              curve: Curves.easeInOutSine);
+        }
       },
       onDoubleTap: () {
         _pageController.previousPage(
@@ -33,13 +43,18 @@ class _WhatIsFlutterState extends State<WhatIsFlutter> {
       child: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
-        children: <Widget>[_FirstPage(), _SecondPage(), _ThirdPage()],
+        children: <Widget>[
+          _FirstPage(),
+          _SecondPage(),
+          _ThirdPage(),
+          _FourthPage(),
+        ],
       ),
     );
   }
 }
 
-void precacheAssets(BuildContext context) {
+void _precacheAssets(BuildContext context) {
   precacheImage(AssetImage('skia.png'), context);
   precacheImage(AssetImage('dart.png'), context);
   precacheImage(AssetImage('android.png'), context);
@@ -49,6 +64,132 @@ void precacheAssets(BuildContext context) {
   precacheImage(AssetImage('tux.png'), context);
   precacheImage(AssetImage('windows.png'), context);
   precacheImage(AssetImage('fuchsia.png'), context);
+}
+
+class _FourthPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _FourthPageState();
+  }
+}
+
+class _FourthPageState extends State<_FourthPage> {
+  bool loading = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: <Widget>[
+          IgnorePointer(
+            ignoring: !loading,
+            child: GestureDetector(
+              onTap: () => _toggle(),
+              child: AnimatedOpacity(
+                opacity: loading ? 1 : 0,
+                curve: Curves.easeInOutSine,
+                duration: Duration(milliseconds: 700),
+                child: _FlutterFeatures(),
+              ),
+            ),
+          ),
+          Center(
+            child: AnimatedOpacity(
+                opacity: loading ? 0 : 1,
+                curve: Curves.easeInOutQuint,
+                duration: Duration(milliseconds: 3500),
+                child: Image.asset('kermit.png')),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _toggle() {
+    setState(() {
+      loading = !loading;
+    });
+  }
+}
+
+class _FlutterFeatures extends StatelessWidget {
+  _FlutterFeatures({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Color(0xffB0E0E6),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Text(
+              'Flutter features...',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 100,
+                  color: Color(0xff4285f4),
+                  fontWeight: FontWeight.bold),
+            ),
+            _CustomRow(
+              text: 'Hot Reload',
+              color: Color(0xffea4335),
+              icon: Icons.refresh,
+            ),
+            _CustomRow(
+              text: 'Declarative UI',
+              color: Colors.orange,
+              icon: Icons.desktop_mac,
+            ),
+            _CustomRow(
+              text: 'Near-native Performance',
+              color: Colors.pink,
+              icon: Icons.timer,
+            ),
+            _CustomRow(
+              text: 'Engaging and Growing Community',
+              color: Color(0xff34a853),
+              icon: Icons.people_outline,
+            ),
+          ],
+        ));
+  }
+}
+
+class _CustomRow extends StatelessWidget {
+  final Color color;
+  final String text;
+  final IconData icon;
+  const _CustomRow({
+    Key key,
+    @required this.color,
+    @required this.text,
+    @required this.icon,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Icon(
+          icon,
+          size: 80,
+          color: color,
+        ),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 64),
+          child: Text(text,
+              style: TextStyle(
+                  fontSize: 60, color: color, fontWeight: FontWeight.bold)),
+        ),
+        Icon(
+          icon,
+          color: color,
+          size: 80,
+        ),
+      ],
+    );
+  }
 }
 
 class _ThirdPage extends StatelessWidget {
