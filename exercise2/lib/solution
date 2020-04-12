@@ -1,0 +1,187 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'It\'s a trap!',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(
+                child: Text('Level 1 Container'),
+              ),
+              Container(
+                child: Text('Level 2 Container'),
+                color: Colors.lightBlue,
+              ),
+              Container(
+                child: Text('Level 3 Container'),
+                color: Colors.lightBlue,
+                padding: EdgeInsets.all(16.0),
+              ),
+              Container(
+                child: Text('Level 4 Container'),
+                color: Colors.lightBlue,
+                padding: EdgeInsets.all(16.0),
+                alignment: Alignment.centerRight,
+              ),
+              Container(
+                child: Text('Level 5 Container'),
+                color: Colors.lightBlue,
+                width: 100,
+                height: 50,
+                alignment: Alignment.center,
+              ),
+              Container(
+                child: Text('Level 6 Container'),
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.lightBlue,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+              ),
+              Container(
+                child: Text('Level 7 Container'),
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.lightBlue,
+                  shape: BoxShape.circle,
+                ),
+              ),
+              Container(
+                child: Text(
+                  '8',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.lightBlue,
+                  shape: BoxShape.circle,
+                ),
+              ),
+              Container(
+                child: Text(
+                  '9',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.lightBlue,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 10,
+                      spreadRadius: 5,
+                      color: Colors.green,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Text(
+                  '10',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 10,
+                      spreadRadius: 5,
+                      color: Colors.red[300],
+                    ),
+                  ],
+                  gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      Colors.red,
+                      Colors.orange,
+                      Colors.orangeAccent,
+                      Colors.pink,
+                      Colors.pinkAccent,
+                    ],
+                    stops: [
+                      0.1,
+                      0.3,
+                      0.5,
+                      0.7,
+                      0.9,
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: Text(
+                  'Final Container! Congrats!\nBut, oh no! look at the top!',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 10,
+                      spreadRadius: 5,
+                      color: Colors.red[300],
+                    ),
+                  ],
+                  gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      Colors.red,
+                      Colors.orange,
+                      Colors.orangeAccent,
+                      Colors.pink,
+                      Colors.pinkAccent,
+                    ],
+                    stops: [
+                      0.1,
+                      0.3,
+                      0.5,
+                      0.7,
+                      0.9,
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
