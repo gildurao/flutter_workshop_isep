@@ -1,4 +1,4 @@
-# Exercise 1 - Counter App
+# Challenge 1 - Counter App
 
 Time to start Fluttering! 
 
@@ -10,7 +10,7 @@ First challenge is to modify the Flutter sample Counter app so it does the follo
 
 ## Goals
 
-Hopefully, by the end of this challenge you'll learn:
+Hopefully, by the end of this challenge you'll learn about:
 
 - ``TextStyle`` and its role for customizing the look of Text Widgets
 
