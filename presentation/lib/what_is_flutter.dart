@@ -30,7 +30,7 @@ class _WhatIsFlutterState extends State<WhatIsFlutter>
     _precacheAssets(context);
     return GestureDetector(
       onTap: () {
-        if (_pageController.page < 3) {
+        if (_pageController.page < 5) {
           _pageController.nextPage(
               duration: Duration(milliseconds: 300),
               curve: Curves.easeInOutSine);
@@ -48,6 +48,8 @@ class _WhatIsFlutterState extends State<WhatIsFlutter>
           _SecondPage(),
           _ThirdPage(),
           _FourthPage(),
+          _FifthPage(),
+          _SixthPage(),
         ],
       ),
     );
@@ -64,51 +66,61 @@ void _precacheAssets(BuildContext context) {
   precacheImage(AssetImage('tux.png'), context);
   precacheImage(AssetImage('windows.png'), context);
   precacheImage(AssetImage('fuchsia.png'), context);
+  precacheImage(AssetImage('flutterlayers.png'), context);
 }
 
-class _FourthPage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _FourthPageState();
-  }
-}
-
-class _FourthPageState extends State<_FourthPage> {
-  bool loading = true;
+class _SixthPage extends StatelessWidget {
+  const _SixthPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Stack(
+      color: Color(0xffB0E0E6),
+      alignment: Alignment.center,
+      child: Image.asset('flutterlayers.png'),
+    );
+  }
+}
+
+class _FifthPage extends StatelessWidget {
+  const _FifthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          IgnorePointer(
-            ignoring: !loading,
-            child: GestureDetector(
-              onTap: () => _toggle(),
-              child: AnimatedOpacity(
-                opacity: loading ? 1 : 0,
-                curve: Curves.easeInOutSine,
-                duration: Duration(milliseconds: 700),
-                child: _FlutterFeatures(),
-              ),
+          Text(
+            'Ok, so Flutter seems pretty cool...',
+            style: TextStyle(
+              color: const Color(0xff4285f4),
+              fontSize: 60,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          Center(
-            child: AnimatedOpacity(
-                opacity: loading ? 0 : 1,
-                curve: Curves.easeInOutQuint,
-                duration: Duration(milliseconds: 3500),
-                child: Image.asset('kermit.png')),
+          Text(
+            '... but how do I use it?',
+            style: TextStyle(
+                color: const Color(0xffea4335),
+                fontSize: 60,
+                fontWeight: FontWeight.bold),
+          ),
+          Text(
+            '🤔🤔🤔🤔🤔',
+            textScaleFactor: 10.0,
           ),
         ],
       ),
     );
   }
+}
 
-  _toggle() {
-    setState(() {
-      loading = !loading;
-    });
+class _FourthPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return _FlutterFeatures();
   }
 }
 
