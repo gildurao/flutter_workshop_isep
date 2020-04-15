@@ -30,7 +30,7 @@ class _WhatIsFlutterState extends State<WhatIsFlutter>
     _precacheAssets(context);
     return GestureDetector(
       onTap: () {
-        if (_pageController.page < 11) {
+        if (_pageController.page < 16) {
           _pageController.nextPage(
             duration: Duration(
               milliseconds: 300,
@@ -63,6 +63,11 @@ class _WhatIsFlutterState extends State<WhatIsFlutter>
           _TenthPage(),
           _EleventhPage(),
           _TwelfthPage(),
+          _ThirteenthPage(),
+          _FourteenthPage(),
+          _FifteenthPage(),
+          _SixteenthPage(),
+          _SeventeenthPage(),
         ],
       ),
     );
@@ -83,6 +88,282 @@ void _precacheAssets(BuildContext context) {
   precacheImage(AssetImage('kermitquestion.png'), context);
   precacheImage(AssetImage('anotherkermit.png'), context);
   precacheImage(AssetImage('bloc.png'), context);
+  precacheImage(AssetImage('thinkingkermit.png'), context);
+  precacheImage(AssetImage('flutterbloc.png'), context);
+  precacheImage(AssetImage('letstalk.png'), context);
+  precacheImage(AssetImage('kermitwhy.png'), context);
+}
+
+class _SeventeenthPage extends StatelessWidget {
+  const _SeventeenthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Flexible(
+            child: Image.asset(
+              'letstalk.png',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SixteenthPage extends StatelessWidget {
+  const _SixteenthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Flexible(
+            child: Text(
+              'Time to write tests!',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                fontSize: 80,
+                color: Colors.pink,
+              ),
+            ),
+          ),
+          Flexible(
+            child: Image.asset(
+              'kermitwhy.png',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FifteenthPage extends StatelessWidget {
+  const _FifteenthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      child: Column(
+        children: <Widget>[
+          Flexible(
+            child: Image.asset(
+              'flutterbloc.png',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FourteenthPage extends StatelessWidget {
+  const _FourteenthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'flutter_bloc package by Felix Angelov',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 60,
+                    color: Color(0xff4285f4),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Key Concepts',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 45,
+                    color: Color(0xff34a853),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    '(Multi)BlocProvider - injects Bloc dependencies throughout a widget subtree',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      'BlocBuilder - requires a bloc and a builder function, builds different UIs according to the bloc\'s state',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      '(Multi)BlocListener - listens for changes in a bloc\'s state to trigger actions (e.g. navigation)',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'BlocConsumer - a combination of BlocBuilder and BlocListener',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 8.0,
+                    ),
+                    child: Text(
+                      '(Multi)RepositoryProvider - injects repository dependencies throughout a widget subtree',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ThirteenthPage extends StatelessWidget {
+  const _ThirteenthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Flexible(
+            child: Text(
+              'Ok, so Bloc seems pretty amazing...',
+              style: TextStyle(
+                color: const Color(0xff4285f4),
+                fontSize: 60,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Flexible(
+            child: Text(
+              '... but there are some nuisances',
+              style: TextStyle(
+                color: const Color(0xffea4335),
+                fontSize: 60,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Flexible(
+            child: Image.asset(
+              'thinkingkermit.png',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _TwelfthPage extends StatelessWidget {
@@ -755,9 +1036,14 @@ class _CustomRow extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 64),
-          child: Text(text,
-              style: TextStyle(
-                  fontSize: 60, color: color, fontWeight: FontWeight.bold)),
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 60,
+              color: color,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         Icon(
           icon,

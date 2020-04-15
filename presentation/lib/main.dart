@@ -36,13 +36,13 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Presentation',
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
       home: Scaffold(
-        body:
-            WhatIsFlutter(), /* Stack(
+        body: Stack(
           children: <Widget>[
             _PresentationContentsTransition(
               secondSlideAnimation: _secondSlideAnimation,
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
               firstSlideAnimation: _firstSlideAnimation,
             ),
           ],
-        ), */
+        ),
       ),
     );
   }
