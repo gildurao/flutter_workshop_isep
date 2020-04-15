@@ -41,12 +41,18 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
         primarySwatch: Colors.lightBlue,
       ),
       home: Scaffold(
-          body: Stack(
-        children: <Widget>[
-          _PresentationContentsTransition(secondSlideAnimation: _secondSlideAnimation),
-          _SplashSlideTransition(firstSlideAnimation: _firstSlideAnimation),
-        ],
-      )),
+        body:
+            WhatIsFlutter(), /* Stack(
+          children: <Widget>[
+            _PresentationContentsTransition(
+              secondSlideAnimation: _secondSlideAnimation,
+            ),
+            _SplashSlideTransition(
+              firstSlideAnimation: _firstSlideAnimation,
+            ),
+          ],
+        ), */
+      ),
     );
   }
 }
@@ -55,7 +61,8 @@ class _PresentationContentsTransition extends StatelessWidget {
   const _PresentationContentsTransition({
     Key key,
     @required AnimationController secondSlideAnimation,
-  }) : _secondSlideAnimation = secondSlideAnimation, super(key: key);
+  })  : _secondSlideAnimation = secondSlideAnimation,
+        super(key: key);
 
   final AnimationController _secondSlideAnimation;
 
@@ -69,14 +76,16 @@ class _PresentationContentsTransition extends StatelessWidget {
         ),
         builder: (_, child) {
           return Transform.translate(
-            offset: Offset(_secondSlideAnimation.value, _secondSlideAnimation.value),
+            offset: Offset(
+                _secondSlideAnimation.value, _secondSlideAnimation.value),
             child: Transform(
-            transform: Matrix4.identity()
-              ..setEntry(3, 2, 0.001)
-              ..rotateX(-math.pi * _secondSlideAnimation.value * 4),
-            alignment: Alignment.centerLeft,
-            child: _secondSlideAnimation.value > 0.6 ? WhatIsFlutter() : child,
-          ),
+              transform: Matrix4.identity()
+                ..setEntry(3, 2, 0.001)
+                ..rotateX(-math.pi * _secondSlideAnimation.value * 4),
+              alignment: Alignment.centerLeft,
+              child:
+                  _secondSlideAnimation.value > 0.6 ? WhatIsFlutter() : child,
+            ),
           );
         });
   }
@@ -86,7 +95,8 @@ class _SplashSlideTransition extends StatelessWidget {
   const _SplashSlideTransition({
     Key key,
     @required AnimationController firstSlideAnimation,
-  }) : _firstSlideAnimation = firstSlideAnimation, super(key: key);
+  })  : _firstSlideAnimation = firstSlideAnimation,
+        super(key: key);
 
   final AnimationController _firstSlideAnimation;
 

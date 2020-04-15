@@ -30,15 +30,22 @@ class _WhatIsFlutterState extends State<WhatIsFlutter>
     _precacheAssets(context);
     return GestureDetector(
       onTap: () {
-        if (_pageController.page < 5) {
+        if (_pageController.page < 11) {
           _pageController.nextPage(
-              duration: Duration(milliseconds: 300),
-              curve: Curves.easeInOutSine);
+            duration: Duration(
+              milliseconds: 300,
+            ),
+            curve: Curves.easeInOutSine,
+          );
         }
       },
       onDoubleTap: () {
         _pageController.previousPage(
-            duration: Duration(milliseconds: 300), curve: Curves.easeInOutSine);
+          duration: Duration(
+            milliseconds: 300,
+          ),
+          curve: Curves.easeInOutSine,
+        );
       },
       child: PageView(
         physics: NeverScrollableScrollPhysics(),
@@ -50,6 +57,12 @@ class _WhatIsFlutterState extends State<WhatIsFlutter>
           _FourthPage(),
           _FifthPage(),
           _SixthPage(),
+          _SeventhPage(),
+          _EighthPage(),
+          _NinthPage(),
+          _TenthPage(),
+          _EleventhPage(),
+          _TwelfthPage(),
         ],
       ),
     );
@@ -67,6 +80,557 @@ void _precacheAssets(BuildContext context) {
   precacheImage(AssetImage('windows.png'), context);
   precacheImage(AssetImage('fuchsia.png'), context);
   precacheImage(AssetImage('flutterlayers.png'), context);
+  precacheImage(AssetImage('kermitquestion.png'), context);
+  precacheImage(AssetImage('anotherkermit.png'), context);
+  precacheImage(AssetImage('bloc.png'), context);
+}
+
+class _TwelfthPage extends StatelessWidget {
+  const _TwelfthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Image.asset('bloc.png'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Let\'s try it out!',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 60,
+                color: Colors.pink,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _EleventhPage extends StatelessWidget {
+  const _EleventhPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'bloc package by Felix Angelov',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 60,
+                    color: Color(0xff4285f4),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Key Concepts',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 45,
+                    color: Color(0xff34a853),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'Events - input to a Bloc, dispatched by user interactions',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'States - output of a Bloc, UI changes according to how state changes',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'Transitions - change from one state to another',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'Streams - a stream is a sequence of asynchronous data',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 8.0,
+                    ),
+                    child: Text(
+                      'Blocs - component which converts a stream of incoming events into a stream of outgoing states',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TenthPage extends StatelessWidget {
+  const _TenthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Should we implement BLoC from scratch?',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                fontSize: 60,
+                color: Color(0xff4285f4),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Sure, it\'s possible, but not recommended...',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                fontSize: 40,
+                color: Color(0xff34a853),
+              ),
+            ),
+          ),
+          Image.asset(
+            'anotherkermit.png',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _NinthPage extends StatelessWidget {
+  const _NinthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'BLoC - Business Logic Component',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 60,
+                    color: Color(0xff4285f4),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'State Management Pattern',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 45,
+                    color: Color(0xff34a853),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'Input and Output of a BLoC is made through Streams and Sinks',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'Dependencies must be injectable and Platform agnostic',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'No platform branching is allowed',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.crop_square,
+                  size: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'Implementation can be whatever you want as long as you follow the above rules',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _EighthPage extends StatelessWidget {
+  const _EighthPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      alignment: Alignment.center,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 50,
+                    ),
+                    Text(
+                      'setState',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 60,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 50,
+                    ),
+                    Text(
+                      'BLoC',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 60,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 50,
+                    ),
+                    Text(
+                      'MobX',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 60,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 50,
+                    ),
+                    Text(
+                      'Provider',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 60,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 50,
+                    ),
+                    Text(
+                      'Redux',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 60,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'and many many others...',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 40,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Image.asset(
+            'kermitquestion.png',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SeventhPage extends StatelessWidget {
+  const _SeventhPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffB0E0E6),
+      alignment: Alignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'UI',
+                style: TextStyle(
+                  color: Colors.purpleAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 200,
+                ),
+              ),
+              Text(
+                ' = ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 200,
+                ),
+              ),
+              Text(
+                'f(state)',
+                style: TextStyle(
+                  color: Colors.pinkAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 200,
+                ),
+              ),
+            ],
+          ),
+          Text(
+            'How we manage state is crucial for our app...',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              fontSize: 60,
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }
 
 class _SixthPage extends StatelessWidget {
@@ -103,9 +667,10 @@ class _FifthPage extends StatelessWidget {
           Text(
             '... but how do I use it?',
             style: TextStyle(
-                color: const Color(0xffea4335),
-                fontSize: 60,
-                fontWeight: FontWeight.bold),
+              color: const Color(0xffea4335),
+              fontSize: 60,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           Text(
             '🤔🤔🤔🤔🤔',
